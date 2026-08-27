@@ -58,10 +58,36 @@
     footer p { margin: 0; }
     footer a { text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-    @media (min-width: 1700px) { .intro { top: 43%; } }
-    @media (max-width: 1000px) {
+    @media (min-width: 900px) {
+      /* One shared width keeps the artwork and installation edges aligned. */
+      .shell { width: min(1280px, calc(100% - 48px)); height: 100vh; height: 100svh; display: grid; grid-template-rows: 56px minmax(0, 1fr) auto; }
+      header { height: auto; }
+      main { width: min(100%, calc((100vh - 340px) * 16 / 9)); width: min(100%, calc((100svh - 340px) * 16 / 9)); min-height: 0; justify-self: center; display: grid; grid-template-rows: auto auto; align-content: start; gap: 14px; }
+      .hero-space { min-width: 0; }
+      .hero { container-type: inline-size; width: 100%; border-radius: 14px; }
+      .intro { top: 41%; right: 7%; }
+      .intro .eyebrow { font-size: clamp(8px, 1cqw, 10px); letter-spacing: .18em; margin-bottom: 1cqw; }
+      h1 { font-size: 3.3cqw; letter-spacing: -.035em; }
+      .intro p:last-child { font-size: 1.4cqw; line-height: 1.5; margin-top: 1.2cqw; }
+      .install { width: 100%; min-width: 0; margin-top: 0; padding: 16px 20px; gap: 20px; grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); align-items: center; border-radius: 14px; }
+      .install > div { min-width: 0; }
+      .install > div:last-child { width: 100%; max-width: 420px; justify-self: end; }
+      .install .eyebrow { font-size: 9px; letter-spacing: 1.6px; margin-bottom: 7px; }
+      h2 { font-size: 19px; letter-spacing: -.5px; margin-bottom: 8px; }
+      .install-copy > p:last-child { font-size: 11px; line-height: 1.55; }
+      .repo-label { font-size: 11px; margin-bottom: 7px; }
+      .copy-row { width: 100%; max-width: 420px; padding: 5px; }
+      .copy-row input { font-size: 11px; padding: 8px 5px; }
+      .copy-row button { padding: 10px 12px; }
+      .status { min-height: 17px; margin: 6px 0 8px; font-size: 11px; }
+      ol { font-size: 11px; line-height: 1.65; }
+      ol li { margin-bottom: 2px; }
+      footer { padding: 12px 2px 14px; }
+    }
+    @media (max-width: 899px) {
       .shell { width: calc(100% - 40px); }
-      .install { gap: 30px; padding: 32px; grid-template-columns: 1fr; }
+      main { display: flex; flex-direction: column; gap: 16px; }
+      .install { order: -1; margin-top: 0; gap: 20px; padding: 24px; grid-template-columns: 1fr; }
       .install-copy > p:last-child { max-width: 640px; }
       .intro { top: 41%; right: 7%; }
       .intro p:last-child { margin-top: 8px; }
@@ -78,7 +104,7 @@
       h1 { font-size: 34px; letter-spacing: -1.2px; }
       .intro p:last-child { font-size: 14px; margin-top: 12px; }
       .eyebrow { font-size: 9px; margin-bottom: 12px; }
-      .install { margin-top: 16px; padding: 27px 22px; gap: 25px; border-radius: 14px; }
+      .install { margin-top: 0; padding: 24px 22px; gap: 20px; border-radius: 14px; }
       h2 { font-size: 26px; }
       .copy-row { flex-direction: column; }
       .copy-row input { width: 100%; font-size: 12px; min-height: 42px; }
@@ -98,6 +124,7 @@
       </nav>
     </header>
     <main>
+      <div class="hero-space">
       <section class="hero" aria-labelledby="hero-title">
         <img src="fongo_github.jpg" width="2048" height="1152" fetchpriority="high" alt="InNova Astro Photo Suite: Editor, Adaptive Stretch and Integrator, with RGB, SHO, OSC, HOO, starless and AI-assisted workflows.">
         <div class="intro">
@@ -106,6 +133,7 @@
           <p>Integrate, edit and stretch your images.<br>Explore InNova Astro Photo Suite for PixInsight.</p>
         </div>
       </section>
+      </div>
       <section class="install" id="installation" aria-labelledby="installation-title">
         <div class="install-copy">
           <p class="eyebrow">The next step</p>
